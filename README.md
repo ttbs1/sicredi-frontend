@@ -14,18 +14,20 @@ Criar uma aplicação que contenha:
 
 - Única página disponível se não estiver logado;
 - Criar um usuário básico para acesso.
-- Uma página de lista de dragões:
+
+Uma página de lista de dragões:
 
 - Os nomes devem estar em ordem alfabética;
 - A partir da lista, deverá ser possível remover e alterar as informações dos dragões.
-- Uma página com os detalhes de um dragão específico:
 
+Uma página com os detalhes de um dragão específico:
 Os seguintes dados devem ser apresentados na página:
 
 - Data de criação;
 - Nome;
 - Tipo.
-- Uma página para cadastro de dragões:
+
+Uma página para cadastro de dragões;
 
 #### **Regras:**
 

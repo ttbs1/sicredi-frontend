@@ -21,6 +21,7 @@ Uma página de lista de dragões:
 - A partir da lista, deverá ser possível remover e alterar as informações dos dragões.
 
 Uma página com os detalhes de um dragão específico:
+
 Os seguintes dados devem ser apresentados na página:
 
 - Data de criação;

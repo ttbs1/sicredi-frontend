@@ -17,6 +17,7 @@ class Login extends React.Component {
         e.preventDefault();
         if (this.state.user === "ttbs1" && this.state.password === "123") {
             this.props.callback(this.state.user)
+            localStorage.setItem('user', this.state.user)
         }
     }
 
@@ -35,7 +36,6 @@ class Login extends React.Component {
                         <input type="password" name="password" placeholder="password" onChange={this.handleChange} />
                         <div>
                             <button type="submit" className="button"><span>login</span></button>
-                            <p><a href="#" onClick={localStorage.clear()}>adsf</a></p>
                         </div>
                         {this.props.user ? <Navigate to="/dragon"></Navigate> : null}
                     </form>

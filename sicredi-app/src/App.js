@@ -14,7 +14,7 @@ function App() {
     }, [user]);
 
     return (
-        <>
+        <div className='App'>
         <p>{user}</p>
         <BrowserRouter>
             <Routes>
@@ -26,10 +26,14 @@ function App() {
                         </RequireAuth>
                     }
                 />
-                <Route path="/dragon/:id" exact element={<Dragon />} />
+                <Route path="/dragon/:id" exact element={
+                <RequireAuth user={user}>
+                    <Dragon />
+                </RequireAuth>
+                } />
             </Routes>
         </BrowserRouter>
-        </>
+        </div>
     );
 }
 

@@ -15,6 +15,23 @@ export async function getDragons() {
     }
 }
 
+export async function postDragon(dragon) {
+    try {
+        let response = await axios.post(url, {
+            name: dragon.name,
+            type: dragon.type,
+            histories: dragon.histories
+        })
+            .then(function (response) {
+                console.log(response);
+                return response;
+            })
+    } catch (error) {
+        console.log(error);
+        return null;
+    }
+}
+
 export async function getCall(id) {
     try {
         let response = await axios.get(url + `/${id}`);
@@ -29,7 +46,7 @@ export async function getCall(id) {
             via: response.data.via,
             created_at: response.data.created_at,
             notes: response.data.notes
-        } ;
+        };
     } catch (error) {
         console.log(error);
         return null;

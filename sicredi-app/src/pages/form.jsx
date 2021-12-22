@@ -1,25 +1,37 @@
-import { useState, useEffect } from "react";
-import { getDragons } from "../util/api";
+import { useState } from "react";
+import { postDragon } from "../util/api";
 
 export default function Form(props) {
 
-    const [dragon, setDragon] = useState([]);
+    const [name, setName] = useState("");
+    const [type, setType] = useState("default");
+    const [histories, setHistories] = useState([])
 
-    useEffect(() => {
+    const handleSubmit = (e) => {
+        console.log(name)
+        console.log(type)
+        console.log(histories)
 
-    }, [dragon]);
+
+        postDragon({
+            name: name,
+            type: type,
+            histories: histories
+        })
+        e.preventDefault();
+    }
 
     return (
         <div className="container">
             <form className="row g-3">
                 <div className="col-md-8">
                     <label className="form-label">Name</label>
-                    <input type="text" className="form-control" />
+                    <input type="text" className="form-control" onChange={(e) => setName(e.target.value)} />
                 </div>
                 <div className="col-md-4">
                     <label className="form-label">Dragon type</label>
-                    <select className="form-select">
-                        <option selected value="default">Default</option>
+                    <select className="form-select" defaultValue="default" onChange={(e) => setType(e.target.value)}>
+                        <option value="default">Default</option>
                         <option value="chinese">Chinese</option>
                         <option value="earth">Earth</option>
                         <option value="fire">Fire</option>
@@ -29,10 +41,10 @@ export default function Form(props) {
                 </div>
                 <div className="col-12">
                     <label className="form-label">Histories</label>
-                    <textarea className="form-control" />
+                    <textarea className="form-control" onChange={(e) => setHistories([e.target.value])} />
                 </div>
                 <div className="col-12 d-flex justify-content-end">
-                    <button type="submit" className="button"><span>Submit</span></button>
+                    <button type="submit" className="button" onClick={handleSubmit}><span>Submit</span></button>
                 </div>
             </form>
         </div>

@@ -8,7 +8,7 @@ export default function Dragons() {
     const [dragons, setDragons] = useState([]);
 
     useEffect(() => {
-        console.log(getDragons().then(response => setDragons((response.data))))
+        getDragons().then(response => setDragons(response.data))
     }, []);
 
     return (

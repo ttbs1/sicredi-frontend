@@ -1,5 +1,7 @@
 .App {
   font-family: 'Roboto';
+  background-color: #f3f3f3;
+  min-height: 100vh;
 }
 
 .App-logo {
@@ -55,7 +57,7 @@
   text-align: center;
 }
 
-input {
+.loginpg {
   width: 90%;
   height: 25px;
   margin-bottom: 15px;

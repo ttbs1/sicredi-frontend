@@ -8,7 +8,7 @@ export default function Dragon () {
     useEffect(() => {
         getDragons().then(response => setDragon([response.data]))
         console.log(dragon)
-    }, [dragon]);
+    }, []);
 
     return (
         <>

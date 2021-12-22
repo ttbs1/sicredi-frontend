@@ -8,7 +8,7 @@ export async function getDragons() {
 
         return {
             data: response.data
-        } ;
+        };
     } catch (error) {
         console.log(error);
         return null;

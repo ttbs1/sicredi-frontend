@@ -8,20 +8,23 @@ export default function Dragons() {
     const [dragons, setDragons] = useState([]);
 
     useEffect(() => {
-        getDragons().then(response => setDragons((response.data)))
+        console.log(getDragons().then(response => setDragons((response.data))))
     }, []);
 
     return (
         <>
             <div className="container">
                 <div className="row">
+                    <div className="col-md-12 d-flex justify-content-end">
+                        <Link className="button" to={`/dragon/form`}><span>Create dragon</span></Link>
+                    </div>
                     {dragons.map((dragon, i) => {
                         const cardContent = (
                             <div className="bg-opacity p-4">
                                 <div className="title">{dragon.name}</div>
                                 <div>{dragon.type}</div>
                                 <div className="options">
-                                    <Link to={`/dragon/${dragon.id}`}><i class="fas fa-file-alt"></i></Link> <i className="fas fa-edit"></i> <i className="fas fa-trash-alt"></i>
+                                    <Link to={`/dragon/${dragon.id}`}><i className="far fa-file-alt"></i></Link> <Link to={`/dragon/form/${dragon.id}`}><i className="fas fa-edit"></i></Link> <i className="fas fa-trash-alt"></i>
                                 </div>
                             </div>
                         )

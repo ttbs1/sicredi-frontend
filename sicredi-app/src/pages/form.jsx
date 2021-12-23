@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { postDragon, putDragon } from "../util/api";
-import { useLocation } from "react-router-dom";
+import { useLocation, Link } from "react-router-dom";
 
 export default function Form(props) {
 
@@ -9,6 +9,7 @@ export default function Form(props) {
     const [name, setName] = useState(dragon.name);
     const [type, setType] = useState(dragon.type);
     const [histories, setHistories] = useState(dragon.histories);
+    const [status, setStatus] = useState(false);
 
     const handleSubmit = (e) => {
 
@@ -18,13 +19,13 @@ export default function Form(props) {
                 name: name,
                 type: type,
                 histories: histories
-            })
+            }).then(response => setStatus(response.status))
         } else {
             postDragon({
                 name: name,
                 type: type,
                 histories: histories
-            })
+            }).then(response => setStatus(response.status))
         }
         e.preventDefault();
     }
@@ -50,6 +51,11 @@ export default function Form(props) {
                 <div className="col-12">
                     <label className="form-label">Histories</label>
                     <textarea className="form-control" onChange={(e) => setHistories([e.target.value])} value={histories} />
+                </div>
+                <div className="col-12 d-flex justify-content-center">
+                    {status === 201 ? <div>Dragon created successfully! <p style={{textAlign: 'center'}}><Link to={"/dragon"}>Back</Link></p></div>
+                        : status === 200 ? <div>Dragon updated successfully! <p style={{textAlign: 'center'}}><Link to={"/dragon"}>Back</Link></p></div> 
+                            : status ? "Unexpected error!" : null }
                 </div>
                 <div className="col-12 d-flex justify-content-end">
                     <button type="submit" className="button" onClick={handleSubmit}><span>Submit</span></button>

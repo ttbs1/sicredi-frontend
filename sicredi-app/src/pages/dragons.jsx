@@ -6,17 +6,21 @@ import "./dragons.css"
 export default function Dragons() {
 
     const [dragons, setDragons] = useState([]);
+    const [status, setStatus] = useState(false);
 
     useEffect(() => {
         getDragons().then(response => setDragons(response.data))
-    }, []);
+    }, [status]);
 
     return (
         <>
             <div className="container">
                 <div className="row">
                     <div className="col-md-12 d-flex justify-content-end">
-                        <Link className="button" to={`/dragon/form`} state={{ dragon: { name: "", type: "default", histories: [] }}}><span>Create dragon</span></Link>
+                        <Link className="button" to={`/dragon/form`} state={{ dragon: { name: "", type: "default", histories: [] } }}><span>Create dragon</span></Link>
+                    </div>
+                    <div className="col-md-12 d-flex justify-content-center status">
+                        {status === 200 ? "Dragon was deleted successfully!" : status ? "Unexpected error!" : null}
                     </div>
                     {dragons.map((dragon, i) => {
                         const cardContent = (
@@ -24,7 +28,7 @@ export default function Dragons() {
                                 <div className="title">{dragon.name}</div>
                                 <div>{dragon.type}</div>
                                 <div className="options">
-                                    <Link to={`/dragon/${dragon.id}`}><i className="far fa-file-alt"></i></Link> <Link to={`/dragon/form/${dragon.id}`} state={{ dragon:dragon }}><i className="fas fa-edit"></i></Link> <button type="button" onClick={() => deleteDragon(dragon.id)}><i className="fas fa-trash-alt"></i></button>
+                                    <Link to={`/dragon/${dragon.id}`} state={{ dragon: dragon }}><i className="far fa-file-alt"></i></Link> <Link to={`/dragon/form/${dragon.id}`} state={{ dragon: dragon }}><i className="fas fa-edit"></i></Link> <button type="button" onClick={() => deleteDragon(dragon.id).then(response => setStatus(response.status))}><i className="fas fa-trash-alt"></i></button>
                                 </div>
                             </div>
                         )

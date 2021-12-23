@@ -17,15 +17,13 @@ export async function getDragons() {
 
 export async function postDragon(dragon) {
     try {
-        await axios.post(url, {
+        let response = await axios.post(url, {
             name: dragon.name,
             type: dragon.type,
             histories: dragon.histories
         })
-            .then(function (response) {
-                console.log(response);
-                return response;
-            })
+        
+        return response;
     } catch (error) {
         console.log(error);
         return null;
@@ -52,7 +50,7 @@ export async function deleteDragon(id) {
     try {
         let response = await axios.delete(`${url}/${id}`);
 
-        return console.log(response);
+        return response;
     } catch (error) {
         console.log(error);
         return null;

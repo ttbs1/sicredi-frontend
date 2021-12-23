@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { getDragons } from "../util/api";
+import { getDragons, deleteDragon } from "../util/api";
 import { Link } from "react-router-dom";
 import "./dragons.css"
 
@@ -16,7 +16,7 @@ export default function Dragons() {
             <div className="container">
                 <div className="row">
                     <div className="col-md-12 d-flex justify-content-end">
-                        <Link className="button" to={`/dragon/form`}><span>Create dragon</span></Link>
+                        <Link className="button" to={`/dragon/form`} state={{ dragon: { name: "", type: "default", histories: [] }}}><span>Create dragon</span></Link>
                     </div>
                     {dragons.map((dragon, i) => {
                         const cardContent = (
@@ -24,15 +24,15 @@ export default function Dragons() {
                                 <div className="title">{dragon.name}</div>
                                 <div>{dragon.type}</div>
                                 <div className="options">
-                                    <Link to={`/dragon/${dragon.id}`}><i className="far fa-file-alt"></i></Link> <Link to={`/dragon/form/${dragon.id}`}><i className="fas fa-edit"></i></Link> <i className="fas fa-trash-alt"></i>
+                                    <Link to={`/dragon/${dragon.id}`}><i className="far fa-file-alt"></i></Link> <Link to={`/dragon/form/${dragon.id}`} state={{ dragon:dragon }}><i className="fas fa-edit"></i></Link> <button type="button" onClick={() => deleteDragon(dragon.id)}><i className="fas fa-trash-alt"></i></button>
                                 </div>
                             </div>
                         )
                         return (
                             <div className="col-md-4 p-4" key={i}>
-                                {dragon.type === "fogo" ? <div className="fire-card card">{cardContent}</div>
-                                    : dragon.type === "gelo" ? <div className="ice-card card">{cardContent}</div>
-                                        : dragon.type === "água" ? <div className="water-card card">{cardContent}</div>
+                                {dragon.type === "fire" ? <div className="fire-card card">{cardContent}</div>
+                                    : dragon.type === "ice" ? <div className="ice-card card">{cardContent}</div>
+                                        : dragon.type === "water" ? <div className="water-card card">{cardContent}</div>
                                             : dragon.type === "earth" ? <div className="earth-card card">{cardContent}</div>
                                                 : dragon.type === "chinese" ? <div className="chinese-card card">{cardContent}</div>
                                                     : <div className="default-card card">{cardContent}</div>

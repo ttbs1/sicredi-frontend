@@ -17,7 +17,7 @@ export async function getDragons() {
 
 export async function postDragon(dragon) {
     try {
-        let response = await axios.post(url, {
+        await axios.post(url, {
             name: dragon.name,
             type: dragon.type,
             histories: dragon.histories
@@ -32,21 +32,27 @@ export async function postDragon(dragon) {
     }
 }
 
-export async function getCall(id) {
+export async function putDragon(dragon) {
     try {
-        let response = await axios.get(url + `/${id}`);
+        let response = await axios.put(`${url}/${dragon.id}`, {
+            id: dragon.id,
+            name: dragon.name,
+            type: dragon.type,
+            histories: dragon.histories
+        })
 
-        return {
-            duration: response.data.duration,
-            is_archived: response.data.is_archived,
-            from: response.data.from,
-            to: response.data.to,
-            direction: response.data.direction,
-            call_type: response.data.call_type,
-            via: response.data.via,
-            created_at: response.data.created_at,
-            notes: response.data.notes
-        };
+        return response;
+    } catch (error) {
+        console.log(error);
+        return null;
+    }
+}
+
+export async function deleteDragon(id) {
+    try {
+        let response = await axios.delete(`${url}/${id}`);
+
+        return console.log(response);
     } catch (error) {
         console.log(error);
         return null;

@@ -16,34 +16,34 @@ function App() {
 
     return (
         <div className='App'>
-        <p>{user}</p>
-        <BrowserRouter>
-            <Routes>
-                <Route path="/" exact element={<Login user={user} callback={setUser} />} />
-                <Route path="/dragon" exact
-                    element={
+            <p>{user}</p>
+            <BrowserRouter>
+                <Routes>
+                    <Route path="/" exact element={<Login user={user} callback={setUser} />} />
+                    <Route path="/dragon" exact
+                        element={
+                            <RequireAuth user={user}>
+                                <Dragons />
+                            </RequireAuth>
+                        }
+                    />
+                    <Route path="/dragon/:id" exact element={
                         <RequireAuth user={user}>
-                            <Dragons />
+                            <Dragon />
                         </RequireAuth>
-                    }
-                />
-                <Route path="/dragon/:id" exact element={
-                <RequireAuth user={user}>
-                    <Dragon />
-                </RequireAuth>
-                } />
-                <Route path="/dragon/form" exact element={
-                    <RequireAuth user={user}>
-                        <Form />
-                    </RequireAuth>
-                } />
-                <Route path="/dragon/form/:id" exact element={
-                    <RequireAuth user={user}>
-                        <Form />
-                    </RequireAuth>
-                } />
-            </Routes>
-        </BrowserRouter>
+                    } />
+                    <Route path="/dragon/form" exact element={
+                        <RequireAuth user={user}>
+                            <Form />
+                        </RequireAuth>
+                    } />
+                    <Route path="/dragon/form/:id" exact element={
+                        <RequireAuth user={user}>
+                            <Form />
+                        </RequireAuth>
+                    } />
+                </Routes>
+            </BrowserRouter>
         </div>
     );
 }

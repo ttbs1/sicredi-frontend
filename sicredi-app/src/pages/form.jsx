@@ -1,23 +1,31 @@
 import { useState } from "react";
-import { postDragon } from "../util/api";
+import { postDragon, putDragon } from "../util/api";
+import { useLocation } from "react-router-dom";
 
 export default function Form(props) {
 
-    const [name, setName] = useState("");
-    const [type, setType] = useState("default");
-    const [histories, setHistories] = useState([])
+    const location = useLocation();
+    const {dragon} = location.state;
+    const [name, setName] = useState(dragon.name);
+    const [type, setType] = useState(dragon.type);
+    const [histories, setHistories] = useState(dragon.histories);
 
     const handleSubmit = (e) => {
-        console.log(name)
-        console.log(type)
-        console.log(histories)
 
-
-        postDragon({
-            name: name,
-            type: type,
-            histories: histories
-        })
+        if (dragon.hasOwnProperty("id")) {
+            putDragon({
+                id: dragon.id,
+                name: name,
+                type: type,
+                histories: histories
+            })
+        } else {
+            postDragon({
+                name: name,
+                type: type,
+                histories: histories
+            })
+        }
         e.preventDefault();
     }
 
@@ -26,11 +34,11 @@ export default function Form(props) {
             <form className="row g-3">
                 <div className="col-md-8">
                     <label className="form-label">Name</label>
-                    <input type="text" className="form-control" onChange={(e) => setName(e.target.value)} />
+                    <input type="text" className="form-control" onChange={(e) => setName(e.target.value)} value={name} />
                 </div>
                 <div className="col-md-4">
                     <label className="form-label">Dragon type</label>
-                    <select className="form-select" defaultValue="default" onChange={(e) => setType(e.target.value)}>
+                    <select className="form-select" defaultValue={type} onChange={(e) => setType(e.target.value)}>
                         <option value="default">Default</option>
                         <option value="chinese">Chinese</option>
                         <option value="earth">Earth</option>
@@ -41,7 +49,7 @@ export default function Form(props) {
                 </div>
                 <div className="col-12">
                     <label className="form-label">Histories</label>
-                    <textarea className="form-control" onChange={(e) => setHistories([e.target.value])} />
+                    <textarea className="form-control" onChange={(e) => setHistories([e.target.value])} value={histories} />
                 </div>
                 <div className="col-12 d-flex justify-content-end">
                     <button type="submit" className="button" onClick={handleSubmit}><span>Submit</span></button>

@@ -10,11 +10,11 @@ export default function Dragon() {
             <div className="container d-flex justify-content-center">
                 <div className="col-8">
                     <div className="info">
-                        <p>Id: {dragon.id}</p>
-                        <p>Created at: {dragon.createdAt}</p>
-                        <p>Name: {dragon.name}</p>
-                        <p>Type: {dragon.type}</p>
-                        <p>Histories: {dragon.histories}</p>
+                        <p><span>Id:</span> {dragon.id}</p>
+                        <p><span>Created at:</span> {dragon.createdAt}</p>
+                        <p><span>Name:</span> {dragon.name}</p>
+                        <p><span>Type:</span> {dragon.type}</p>
+                        <p><span>Histories:</span> {dragon.histories}</p>
                     </div>
                 </div>
             </div>

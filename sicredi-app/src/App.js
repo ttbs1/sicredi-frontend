@@ -16,7 +16,7 @@ function App() {
 
     return (
         <div className='App'>
-            <p>{user}</p>
+            <div className="header container-fluid d-flex justify-content-end p-3"><div className='me-3'>{user}</div> <div className='me-3'><button className='link-btn' onClick={() => setUser(null)}>logout</button></div></div>
             <BrowserRouter>
                 <Routes>
                     <Route path="/" exact element={<Login user={user} callback={setUser} />} />

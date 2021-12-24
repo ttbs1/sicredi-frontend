@@ -17,7 +17,6 @@
 
 .App-header {
   background-color: #282c34;
-  min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -39,14 +38,12 @@
   }
 }
 
-.home {
-  background-color: #f3f3f3;
-  
+.home {  
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
   width: 100vw;
+  height: 85vh;
 }
 
 .login {
@@ -109,4 +106,26 @@ button {
 .button:hover span:after {
   opacity: 1;
   right: 0;
+}
+
+.link-btn {
+  all: unset
+}
+
+.link-btn:hover {
+  cursor: pointer;
+}
+
+.header {
+  background-color: rgb(185, 185, 185);
+  margin-bottom: 25px;
+}
+
+.info {
+  padding-top: 30px;
+  font-size: 1.1em;
+}
+
+.info span{
+  font-weight: 700;
 }

@@ -18,13 +18,13 @@ export default function Form(props) {
                 id: dragon.id,
                 name: name,
                 type: type,
-                histories: histories.split("\n")
+                histories: (histories+'').split("\n")
             }).then(response => setStatus(response.status))
         } else {
             postDragon({
                 name: name,
                 type: type,
-                histories: histories.split("\n")
+                histories: (histories+'').split("\n")
             }).then(response => setStatus(response.status))
         }
         e.preventDefault();

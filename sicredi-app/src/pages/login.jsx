@@ -29,11 +29,11 @@ class Login extends React.Component {
 
     render() {
         return (
-            <div className="home">
-                <div className="login">
+            <div className="home container d-flex justify-content-center">
+                <div className="login col-10">
                     <form onSubmit={this.handleSubmit} method="post">
-                        <input className="loginpg" type="text" name="user" placeholder="username" onChange={this.handleChange} />
-                        <input className="loginpg" type="password" name="password" placeholder="password" onChange={this.handleChange} />
+                        <input className="input-default" type="text" name="user" placeholder="username" onChange={this.handleChange} />
+                        <input className="input-default" type="password" name="password" placeholder="password" onChange={this.handleChange} />
                         <div>
                             <button type="submit" className="button"><span>login</span></button>
                         </div>

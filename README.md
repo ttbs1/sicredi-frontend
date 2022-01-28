@@ -1,5 +1,5 @@
 # sicredi-frontend
-frontend challenge from sicredi corporation to test and practice my react.js skills
+frontend challenge from sicredi corporation to test and practice my react.js skills.
 
 ## Teste para Desenvolvedor(a) Web Sicredi #6
 

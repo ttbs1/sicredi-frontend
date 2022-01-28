@@ -18,28 +18,28 @@ export default function Form(props) {
                 id: dragon.id,
                 name: name,
                 type: type,
-                histories: histories
+                histories: histories.split("\n")
             }).then(response => setStatus(response.status))
         } else {
             postDragon({
                 name: name,
                 type: type,
-                histories: histories
+                histories: histories.split("\n")
             }).then(response => setStatus(response.status))
         }
         e.preventDefault();
     }
 
     return (
-        <div className="container">
+        <div className="container form">
             <form className="row g-3">
                 <div className="col-md-8">
-                    <label className="form-label">Name</label>
-                    <input type="text" className="form-control" onChange={(e) => setName(e.target.value)} value={name} />
+                    <label style={{paddingBottom:"0.75rem"}}>Name:</label>
+                    <input type="text" className="input-default" onChange={(e) => setName(e.target.value)} value={name} placeholder="Dragon name" />
                 </div>
                 <div className="col-md-4">
-                    <label className="form-label">Dragon type</label>
-                    <select className="form-select" defaultValue={type} onChange={(e) => setType(e.target.value)}>
+                    <label style={{paddingBottom:"0.75rem"}}>Dragon type:</label>
+                    <select className="input-default" defaultValue={type} onChange={(e) => setType(e.target.value)}>
                         <option value="default">Default</option>
                         <option value="chinese">Chinese</option>
                         <option value="earth">Earth</option>
@@ -49,8 +49,8 @@ export default function Form(props) {
                     </select>
                 </div>
                 <div className="col-12">
-                    <label className="form-label">Histories</label>
-                    <textarea className="form-control" onChange={(e) => setHistories([e.target.value])} value={histories} />
+                    <label style={{paddingBottom:"0.75rem"}}>Histories:</label>
+                    <textarea className="input-default" onChange={(e) => setHistories([e.target.value])} value={histories.join("\n")} placeholder="tip: use a line break to separate one or more histories" />
                 </div>
                 <div className="col-12 d-flex justify-content-center">
                     {status === 201 ? <div>Dragon created successfully! <p style={{textAlign: 'center'}}><Link to={"/dragon"}>Back</Link></p></div>

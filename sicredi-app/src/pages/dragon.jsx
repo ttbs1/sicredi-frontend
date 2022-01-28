@@ -14,7 +14,7 @@ export default function Dragon() {
                         <p><span>Created at:</span> {dragon.createdAt}</p>
                         <p><span>Name:</span> {dragon.name}</p>
                         <p><span>Type:</span> {dragon.type}</p>
-                        <p><span>Histories:</span> {dragon.histories}</p>
+                        <p><span>Histories:</span> {dragon.histories.map(response => <div>{response}</div>)}</p>
                     </div>
                 </div>
             </div>

@@ -1,6 +1,12 @@
 # sicredi-frontend
 frontend challenge from sicredi corporation to test and practice my react.js skills.
 
+## How to run it locally
+
+In the project directory, using npm, you can run
+`npm start` and open [http://localhost:3000](http://localhost:3000) 
+to view it in your browser.
+
 ## Teste para Desenvolvedor(a) Web Sicredi #6
 
 Seja bem vindo! Obrigado pelo interesse em participar do nosso processo seletivo.

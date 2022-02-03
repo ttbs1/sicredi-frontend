@@ -50,7 +50,7 @@ export default function Form(props) {
                 </div>
                 <div className="col-12">
                     <label style={{paddingBottom:"0.75rem"}}>Histories:</label>
-                    <textarea className="input-default" onChange={(e) => setHistories([e.target.value])} value={histories.join("\n")} placeholder="tip: use a line break to separate one or more histories" />
+                    <textarea className="input-default" onChange={(e) => setHistories([e.target.value])} value={Array.isArray(histories) ? histories.join("\n") : histories} placeholder="tip: use a line break to separate one or more histories" />
                 </div>
                 <div className="col-12 d-flex justify-content-center">
                     {status === 201 ? <div>Dragon created successfully! <p style={{textAlign: 'center'}}><Link to={"/dragon"}>Back</Link></p></div>

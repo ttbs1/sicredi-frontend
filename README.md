@@ -7,7 +7,7 @@ In the project directory, using npm, you can run
 `npm start` and open [http://localhost:3000](http://localhost:3000) 
 to view it in your browser.
 
-User: ttbs1
+User: ttbs1 <br>
 Password: 123
 
 ### Screen Preview -> List

@@ -7,10 +7,22 @@ In the project directory, using npm, you can run
 `npm start` and open [http://localhost:3000](http://localhost:3000) 
 to view it in your browser.
 
-## Screen Preview -> List
+### Screen Preview -> List
 
 <div align="center">
 	<img height="" src='https://raw.githubusercontent.com/ttbs1/sicredi-frontend/main/img/list.png'>
+</div>
+
+### Screen Preview -> Create/update
+
+<div align="center">
+	<img height="" src='https://raw.githubusercontent.com/ttbs1/sicredi-frontend/main/img/update.png'>
+</div>
+
+### Screen Preview -> Detail
+
+<div align="center">
+	<img height="" src='https://raw.githubusercontent.com/ttbs1/sicredi-frontend/main/img/detail.png'>
 </div>
 
 ## Teste para Desenvolvedor(a) Web Sicredi #6

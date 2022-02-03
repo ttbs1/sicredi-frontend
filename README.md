@@ -9,7 +9,7 @@ to view it in your browser.
 
 ## Screen Preview -> List
 
-[List screen](ttbs1.github.com/sicredi-frontend/img/list.png)
+<img height="" src='https://raw.githubusercontent.com/ttbs1/sicredi-frontend/main/img/list.png' align='center'>
 
 ## Teste para Desenvolvedor(a) Web Sicredi #6
 

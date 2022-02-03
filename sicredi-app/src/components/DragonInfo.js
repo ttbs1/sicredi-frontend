@@ -9,7 +9,7 @@ export default function DragonInfo(props) {
                         <p><span>Created at:</span> {props.dragon.createdAt}</p>
                         <p><span>Name:</span> {props.dragon.name}</p>
                         <p><span>Type:</span> {props.dragon.type}</p>
-                        <p><span>Histories:</span> {props.dragon.histories.map(response => <div>{response}</div>)}</p>
+                        <p><span>Histories:</span> {props.dragon.histories.map((response, index) => <div key={index}>{response}</div>)}</p>
                     </div>
                 </div>
             </div>

@@ -7,6 +7,10 @@ In the project directory, using npm, you can run
 `npm start` and open [http://localhost:3000](http://localhost:3000) 
 to view it in your browser.
 
+## Screen Preview -> List
+
+[List screen](ttbs1.github.com/sicredi-frontend/img/list.png)
+
 ## Teste para Desenvolvedor(a) Web Sicredi #6
 
 Seja bem vindo! Obrigado pelo interesse em participar do nosso processo seletivo.

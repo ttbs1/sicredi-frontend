@@ -1,5 +1,5 @@
 # sicredi-frontend
-frontend challenge from sicredi corporation to test and practice my react.js skills.
+Frontend challenge from sicredi corporation to test and practice my ReactJS skills. Bootstrap was only used to scale and position containers.
 
 ## How to run it locally
 

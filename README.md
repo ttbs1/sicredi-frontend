@@ -1,6 +1,10 @@
 # sicredi-frontend
 Frontend challenge from sicredi corporation to test and practice my ReactJS skills. Bootstrap was only used to scale and position containers.
 
+## TODO List
+
+- break page components into multiple components
+
 ## How to run it locally
 
 In the project directory, using npm, you can run
